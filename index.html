@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    
+    <div class="container">
+
+        <article class="col-lg-12">
+        <h2>O que é Flexbox?</h2>
+        <p>O <code>Flexbox</code> (Flexible Box) nos permite organizar, alinhar e distribuir itens dentro de um container. Com ele fica mais simples definir o tamanho e o alinhamento vertical e horizontal de itens.</p>
+        <p>Primeiro de tudo temos que saber que teremos propriedades CSS para trabalhar com o elemento que possui nossos itens (container ou elemento pai) e propriedades para os nossos itens (elementos filhos).</p>
+        <p><img class="lazy entered loaded" data-src="https://dkrn4sk0rn31v.cloudfront.net/2019/02/25075233/flexbox-item-container.png" src="https://dkrn4sk0rn31v.cloudfront.net/2019/02/25075233/flexbox-item-container.png" alt="" data-ll-status="loaded" style="cursor: zoom-in;"></p>
+        <h2>Container</h2>
+        <p>Neste primeiro post veremos as propriedades que ficam no elemento pai dos nossos itens, o container.
+        Teremos basicamente um container com três itens dentro.</p>
+        <button class="copy-code-button" type="button">Copiar</button><pre class=" language-html" tabindex="0"><code class=" language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span> <span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span> <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span> <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>item<span class="token punctuation">"</span></span> <span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">&gt;</span></span>
+        </code></pre>
+        <h3>display</h3>
+        <p>Primeiro precisamos definir que o nosso container é do tipo “flex”; Fazemos isso com a propriedade “display”.
+        No exemplo abaixo, utilize o <code>checkbox</code> para ligar/desligar o <code>Flexbox</code>.</p>
+        <script async src="https://jsfiddle.net/62kduo09/4/embedded/result/dark/"></script>
+
+        <h3>flex-direction</h3>
+        <p>Indica a direção dos itens, definindo o que vamos chamar de <code>eixo principal</code> (<em>main-axis</em>).</p>
+        <ul>
+        <li>
+        <strong>row</strong> (padrão): da esquerda para direita</li>
+        <li>
+        <strong>row-reverse:</strong> inverso de <code>row</code>
+        </li>
+        <li>
+        <strong>column:</strong> de cima para baixo</li>
+        <li>
+        <strong>column-reverse:</strong> inverso de <code>column</code>
+        </li>
+        </ul>
+        <script async src="https://jsfiddle.net/9uzp57kh/embedded/result/dark/"></script>
+        <h3>flex-wrap</h3>
+        <p>O comportamento padrão dos itens de um elemento flex é ficar em uma única linha. Se a largura total de todos os itens for maior do que o espaço disponível, os itens continuarão na mesma linha.</p>
+        <p>Esta propriedade permite que os itens sejam jogados em outra linha caso não haja mais espaço na linha.</p>
+        <ul>
+        <li>
+        <strong>nowrap</strong> (padrão): todos os itens ficam em uma única linha</li>
+        <li>
+        <strong>wrap:</strong> os itens que não cabem na linha são jogados para baixo</li>
+        <li>
+        <strong>wrap-reverse:</strong> os itens que não cabem na linha são jogados para cima</li>
+        </ul>
+        <script async src="https://jsfiddle.net/62kduo09/7/embedded/result/dark/"></script>
+
+        <h3>flex-flow</h3>
+        <p>Esta propriedade é apenas um atalho para <code>flex-direction</code> e <code>flex-wrap</code>, nos permitindo declarar o valor de ambos em uma única propriedade.</p>
+        <button class="copy-code-button" type="button">Copiar</button><pre class=" language-css" tabindex="0"><code class=" language-css"><span class="token selector">.container</span><span class="token punctuation">{</span>
+        <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+        <span class="token property">flex-flow</span><span class="token punctuation">:</span> row wrap<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        </code></pre>
+        <h3>justify-content</h3>
+        <p>Define o alinhamento dos itens ao longo do <code>eixo principal</code>.</p>
+        <ul>
+        <li>
+        <strong>flex-start</strong> (padrão): os itens ficam junto no começo da linha</li>
+        <li>
+        <strong>flex-end:</strong> os itens ficam juntos no final da linha</li>
+        <li>
+        <strong>center:</strong> os itens ficam centralizados na linha</li>
+        <li>
+        <strong>space-between:</strong> os itens são distribuídos igualmente no espaço disponível. O primeiro item fica no começo da linha e o último fica no final.</li>
+        <li>
+        <strong>space-around:</strong> os itens são distribuídos igualmente no espaço disponível ao redor deles.</li>
+        <li>
+        <strong>space-evenly:</strong> os itens são distribuídos igualmente no espaço disponível.</li>
+        </ul>
+        <script async src="https://jsfiddle.net/62kduo09/8/embedded/result/dark/"></script>
+
+        <p><strong>flex-direction: column</strong></p>
+        <p>Lembre-se que esta propriedade alinha os itens em relação ao <code>eixo principal</code>. Isso significa que se você mudar o valor de <code>flex-direction</code>, a direção do posicionamento será outra.</p>
+        
+        <script async src="https://jsfiddle.net/62kduo09/11/embedded/result/dark/"></script>
+
+        <h3>align-items</h3>
+        <p>Define o alinhamento dos itens perpendicularmente em relação ao <code>eixo principal</code>.
+        Pense nele como um <code>justify-content</code>, mas que alinhará os itens no outro eixo.</p>
+        <ul>
+        <li>
+        <strong>stretch</strong> (padrão): estica os elementos para preencherem o container.</li>
+        <li>
+        <strong>flex-start:</strong> os itens ficam junto no começo do eixo perpendicular</li>
+        <li>
+        <strong>flex-end:</strong> os itens ficam juntos no final do eixo perpendicular</li>
+        <li>
+        <strong>center:</strong> os itens ficam centralizados no eixo perpendicular</li>
+        <li>
+        <strong>baseline:</strong> parecido com o <code>center</code>, mas usando a base da linha como referência. No exemplo abaixo, note como os textos dos itens ficam alinhados.</li>
+        </ul>
+        <script async src="https://jsfiddle.net/62kduo09/9/embedded/result/dark/"></script>
+
+        <p><strong>flex-direction: column</strong></p>
+        <p>Lembre-se que esta propriedade alinha os itens em relação ao <code>eixo principal</code>. Isso significa que se você mudar o valor de <code>flex-direction</code>, a direção do posicionamento será outra.</p>
+        <script async src="https://jsfiddle.net/62kduo09/12/embedded/result/dark/"></script>
+        <h3>align-content</h3>
+        <p>Alinha as linhas do container.
+        Por alinhar as linhas, esta propriedade só tem efeito quando há mais de uma linha.</p>
+        <ul>
+        <li>
+        <strong>stretch</strong> (padrão): estica as linhas para preencherem o espaço restante.</li>
+        <li>
+        <strong>flex-start:</strong> as linhas ficam juntas no começo do container</li>
+        <li>
+        <strong>flex-end:</strong> as linhas ficam juntas no final do container</li>
+        <li>
+        <strong>center:</strong> as linhas ficam centralizadas no container</li>
+        <li>
+        <strong>space-between:</strong> as linhas são distribuídas igualmente. A primeira linha fica no começo do container e a última fica no final.</li>
+        <li>
+        <strong>space-around:</strong> as linhas são distribuídas igualmente no espaço disponível ao redor delas.</li>
+        </ul>
+        <script async src="https://jsfiddle.net/62kduo09/10/embedded/result/dark/"></script>
+        <p><strong>flex-direction: column</strong></p>
+        <p>Lembre-se que esta propriedade alinha os itens em relação ao <code>eixo principal</code>. Isso significa que se você mudar o valor de <code>flex-direction</code>, a direção do posicionamento será outra.</p>
+        <script async src="https://jsfiddle.net/62kduo09/13/embedded/result/dark/"></script>
+
+        <p></p>
+        <p></p>
+        <h2>Playground</h2>
+        <p>Para testar, brinque um pouco com cada uma das propriedades para ver as possibilidades:</p>
+        <script async src="https://jsfiddle.net/62kduo09/15/embedded/result/dark/"></script>
+
+        </article>
+
+    </div>
+    
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
